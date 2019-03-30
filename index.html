@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style type="text/css">
+			body {
+				overflow: hidden;
+				margin: 0;
+				background-image: url(image/001.jpg);
+			}
+			
+			.heart {
+				position: relative;
+				width: 1100px;
+				height: 300px;
+				margin: 50px auto;
+				/*background-color:gold;*/
+			}
+			
+			.snowfall-flakes:before,
+			.snowfall-flakes:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 10px;
+				height: 16px;
+				background-color: red;
+				border-radius: 5px 5px 0 0;
+			}
+			
+			.snowfall-flakes:before {
+				transform: translateZ(4.3px) rotate(-45deg);
+			}
+			
+			.snowfall-flakes:after {
+				transform: translateX(4.3px) rotate(45deg);
+			}
+			
+			.zho {
+				width: 1100px;
+				height: 250px;
+			}
+			
+			img {
+				width: 210px;
+				height: 230px;
+				float: left;
+			}
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="heart">
+
+			<div class="zho">
+				<img src="image/001.jpg" />
+				<img src="image/002.jpg" />
+				<img src="image/003.jpg" />
+				<img src="image/004.jpg" />
+				<img src="image/005.jpg" />
+				
+			<embed src="image/古倩敏 _ 杨沛宜 - 别看我只是一只羊.mp3" width=0 height=0 loop="true" autostart="true">
+
+				
+			</div>
+		</div>
+
+	</body>
+	<script src="js/jquery-1.2.6.min.js"></script>
+
+	<script src="js/snowfall.jquery.js"></script>
+	<script>
+		$(document).snowfall({
+			flakeCount: 100,
+			maxSpeed: 10
+		});	
+	</script>
+
+	<script>
+		window.onload = function() {
+			var img = document.getElementsByTagName("img");
+
+			for(var i = 0; i < img.length; i++) {
+
+				(function(i) {
+					img[i].onmousemove = function() {
+
+						document.body.style.backgroundImage = "url(image/00" + (i + 1) + ".jpg)";
+					}
+				})(i)
+
+			}
+
+		}
+	</script>
+
+</html>
